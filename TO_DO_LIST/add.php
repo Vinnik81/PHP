@@ -9,7 +9,7 @@
     }
     else{
         require 'config.php';
-        $request = $pdo->prepare('INSERT INTO tasks(task) VALUE (:task);');
+        $request = $pdo->prepare('INSERT INTO tasks(task) VALUES (:task);');
         $request->execute(['task'=>$task]);
         header("Location:/");
     }
