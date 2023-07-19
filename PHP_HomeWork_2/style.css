@@ -1,0 +1,17 @@
+.container {
+    background-image: url("/Images/follower-or-user.jpg");
+    background-size: 25%;
+}
+
+#name {
+    width: 526px;
+}
+
+#age {
+    width: 150px;
+}
+
+h1 {
+font-family: cursive;
+width: 526px;
+}
