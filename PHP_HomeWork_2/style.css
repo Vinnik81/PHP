@@ -11,6 +11,10 @@
     width: 150px;
 }
 
+.form-label {
+    font-weight: 700;
+}
+
 h1 {
 font-family: cursive;
 width: 526px;
