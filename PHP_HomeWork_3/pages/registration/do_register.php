@@ -8,7 +8,7 @@
 require_once '/project/PHP/TO_DO_SITE/config.php';
 
 function is_correct_file() {
-$upload_dir = '/project/PHP/TO_DO_SITE\images\\';
+$upload_dir = '\project\PHP\PHP_HomeWork_3\images\\';
 #$_FILES['name_attribute from form']['name']
 $upload_filename = $upload_dir.basename($_FILES['avatar_img']['name']); // only filename
 //echo $_FILES['avatar_img']['name']."<br>".$_FILES['avatar_img']['type'];
@@ -22,7 +22,7 @@ if ($_FILES['avatar_img']['size'] > 5*1024*1024) {
     die;
 }
 if (move_uploaded_file($_FILES['avatar_img']['tmp_name'], $upload_filename)) {
-    return $upload_filename;
+    return basename($_FILES['avatar_img']['name']);
 }
 echo 'smth wrong';
 die;

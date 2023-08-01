@@ -22,7 +22,7 @@ if ($_FILES['avatar_img']['size'] > 5*1024*1024) {
     die;
 }
 if (move_uploaded_file($_FILES['avatar_img']['tmp_name'], $upload_filename)) {
-    return $upload_filename;
+    return basename($_FILES['avatar_img']['name']);
 }
 echo 'smth wrong';
 die;

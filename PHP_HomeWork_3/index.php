@@ -13,9 +13,23 @@
 		<?php
 		require_once '/project/PHP/TO_DO_SITE/config.php';
 
-		if (!!($_SESSION['user_id']??false)) {?>
+		if (!!($_SESSION['user_id']??false)) {
+			$sqlrequest = $pdo->prepare("SELECT * FROM `users` WHERE `id` = :id");
+			$sqlrequest->execute(['id' => $_SESSION['user_id']]);
+			$user = $sqlrequest->fetch(PDO::FETCH_ASSOC);
+			?>
 			<!-- отображать личный кабинет-->
 			<h1>Welcom back</h1>
+			<table>
+				<tr>
+					<?php
+						echo '<td><img style="width: 100px; height: 100px;" src="/images/'.$user['avatar_img'].'"></td>'
+					?>
+					<td><?php
+						echo '<h2>'.$user['username'].'</h2>'
+					?></td>
+				</tr>
+			</table>
 		<?php }
 			else if (htmlspecialchars($_COOKIE["action"]) == 'registration_succesful') { // проверку хеша
 				header('Location: pages/auth/login.php');
@@ -27,7 +41,7 @@
 		<!--кнопка выхода из системы -->
 		<?php
 			if (isset($_SESSION['user_id'])) {?>
-				<form action="./pages/auth/login.php" method="post">
+				<form action="logout.php" method="post">
 				<button type="submit" class="btn btn-outline-danger">
 				<svg xmlns="http://www.w3.org/2000/svg" width="50" height="40" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
   <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
