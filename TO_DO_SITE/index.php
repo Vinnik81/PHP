@@ -28,7 +28,7 @@
 				?></td>
 			</tr>
 			</table>
-			
+			<a href='pages/TO_DO_LIST/index.php'><input type='button' value='Посмотреть список задач'></a>
 			<form method="post" action="do_logout.php">
 				<input type="submit" value="Logout">
 			</form>
