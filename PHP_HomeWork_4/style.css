@@ -1,0 +1,20 @@
+.container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.attributes {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+select.command-input {
+    font-size: 18px;
+    margin-bottom: 10px;
+    width: 50px;
+}
+
+.submit-button {
+    font-size: 18px;
+    padding: 5px 10px;
+}
