@@ -1,76 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="refresh" content="60"> <!-- Обновление страницы каждую минуту -->
     <title>Питомец</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
-<body>
-
-
+<body style="background-color: blueviolet;">
     <div class="container">
         <h1>Питомец</h1>
+        
         <div class="attributes">
             <?php
             require_once('pet.php');
 
             $pet = new Pet();
-
+         
      
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $command = $_POST['command'];
-    if ($command == "играть") {
-        $pet->play();
-    } elseif ($command == "кормить") {
-        $pet->feed();
-    } elseif ($command == "спать") {
-        $pet->sleep();
-    } elseif ($command == "бессмертие") {
-        $pet->setIsnormal(true);
+        $currentTime = time();
+        $oneMinuteLater = $currentTime + 60;
+        
+        
+
+     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $command = $_POST['command'];
+        if ($command == "играть") {
+            $pet->play();
+        } elseif ($command == "кормить") {
+            $pet->feed();
+        } elseif ($command == "спать") {
+            $pet->sleep();
+        } elseif ($command == "бессмертие") {
+            $pet->setIsnormal(true);
+        }
+        else {
+            echo "Неверная команда!";
+        }
     }
-    else {
-        echo "Неверная команда!";
-    }
+    if ($oneMinuteLater)
+    $pet->decreaseAttributes();
+
+echo date('Y-m-d H:i:s', $oneMinuteLater);
     ?>
-    <!-- <script>
-setInterval(function() {
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'decreaseAttributes.php', false);
-  xhr.send();
-  alert('time');
-  
-}, 60000);
-</script> -->
-<script>
-    setInterval(function() {
-        $.ajax({
-            url: 'decreaseAttributes.php',
-            method: 'post',
-            async:true,
-            data: {
-                var: 'value'
-            },
-            success:function(response) {
-                console.log(response);
-            }
-        });
-    }, 60000);
-</script>
 <?php
 $pet->showAttributes();
-}
-?>
-        </div>
 
-        <form action="" method="POST">
+?>
+<img src="./images/1681578146_5.png" class="card-img-top w-75" alt="...">
+        </div>
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
         
-            <input type="submit" value="играть" name="command" class="submit-button">
-            <input type="submit" value="кормить" name="command" class="submit-button">
-            <input type="submit" value="спать" name="command" class="submit-button">
-            <input type="submit" value="бессмертие" name="command" class="submit-button">
-            <br>
-        </form>
+        <input type="submit" value="играть" name="command" class="btn btn-primary" style="width: 150px; height: 70px">
+        <input type="submit" value="кормить" name="command" class="btn btn-success" style="width: 150px; height: 70px">
+        <input type="submit" value="спать" name="command" class="btn btn-info" style="width: 150px; height: 70px">
+        <input type="submit" value="бессмертие" name="command" class="btn btn-danger" style="width: 150px; height: 70px">
+        <br>
+    </form>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>
