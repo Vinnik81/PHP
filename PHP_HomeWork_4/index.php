@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="refresh" content="60"> <!-- Обновление страницы каждую минуту -->
+<meta http-equiv="refresh" content="60"> <!-- Обновление страницы  -->
     <title>Питомец</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
@@ -12,8 +12,9 @@
         
         <div class="attributes">
             <?php
+            //session_start();
             require_once('pet.php');
-
+            
             $pet = new Pet();
          
      
@@ -29,7 +30,7 @@
         } elseif ($command == "кормить") {
             $pet->feed();
         } elseif ($command == "спать") {
-            $pet->sleep();
+            $pet->sleepy();
         } elseif ($command == "бессмертие") {
             $pet->setIsnormal(true);
         }
@@ -37,10 +38,20 @@
             echo "Неверная команда!";
         }
     }
-    if ($oneMinuteLater)
+
+    // if (!isset($_SESSION['last_update_time'])) {
+    //     $_SESSION['last_update_time'] = $currentTime;
+    // }
+    // else {
+    //     $lastUpdateTime = $_SESSION['last_update_time'];
+    //     if ($currentTime - $lastUpdateTime >= 60) {
+    //         $pet->decreaseAttributes();
+    //         $_SESSION['last_update_time'] = $currentTime;
+    //     }
+    // }
     $pet->decreaseAttributes();
 
-echo date('Y-m-d H:i:s', $oneMinuteLater);
+echo date('Y-m-d H:i', $oneMinuteLater);
     ?>
 <?php
 $pet->showAttributes();
