@@ -8,9 +8,10 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body>
-	<!--какую страницу авторизацию, или регистрации,  или личный кабинет -->
+	<div class="conteiner" style="background-image: url('./images/Planets_Saturn_planet_Mars.jpg'); background-size: cover; height: 900px;">
+<!--какую страницу авторизацию, или регистрации,  или личный кабинет -->
 		
-		<?php
+<?php
 		require_once '/project/PHP/TO_DO_SITE/config.php';
 
 		if (!!($_SESSION['user_id']??false)) {
@@ -19,6 +20,30 @@
 			$user = $sqlrequest->fetch(PDO::FETCH_ASSOC);
 			?>
 			<!-- отображать личный кабинет-->
+			<nav class="navbar navbar-expand-lg bg-primary-subtle border border-primary-subtle">
+  <div class="container-fluid">
+    <a class="navbar-brand text-primary-emphasis" href="#">Панель навигации</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Переключатель навигации">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active text-primary-emphasis" aria-current="page" href="./index.php">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary-emphasis" href="./edit.php">Редактировать</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary-emphasis" href="./pages/registration/registration.php">Регистрация</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-danger-emphasis" href="./logout.php">Выход</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 			<h1>Welcom back</h1>
 			<table>
 				<tr>
@@ -66,7 +91,14 @@
 				exit();
 			}
 		?>
-
+	</div>
+	
+<footer>
+<div class="d-flex justify-content-evenly bg-primary border border-primary-subtle">
+	<h6>ToDoSite 2023</h6>
+	<a class="text-primary-emphasis" href="https://omsk.top-academy.ru">Company: Academy TOP</a>
+</div>
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -8,6 +8,31 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body>
+    <div class="conteiner" style="background-image: url('./images/nBkSUhL2h.jpg'); background-size: cover; height: 900px;">
+    <nav class="navbar navbar-expand-lg bg-primary-subtle border border-primary-subtle">
+  <div class="container-fluid">
+    <a class="navbar-brand text-primary-emphasis" href="#">Панель навигации</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Переключатель навигации">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active text-primary-emphasis" aria-current="page" href="./edit.php">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary-emphasis" href="./edit.php">Редактировать</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary-emphasis" href="./pages/registration/registration.php">Регистрация</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-danger-emphasis" href="./logout.php">Выход</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
     <h1>Edit Page</h1>
     <div class="button-container d-flex justify-content-start">
     <form method="post" action="" enctype="multipart/form-data" class="d-flex justify-content-start">
@@ -25,6 +50,10 @@
 		        </button>
 </form>
     </div>
+    </div>
+
+    
+
 
     <?php
 require_once '/project/PHP/TO_DO_SITE/config.php';
@@ -52,8 +81,9 @@ function is_correct_file() {
     $sqlrequest = $pdo->prepare('UPDATE users SET `avatar_img` = :avatar_img WHERE `id` = :id');
     $sqlrequest->execute(['avatar_img' => is_correct_file(), 'id' => $_SESSION['user_id']]);
     header("Location: /");
-?>
 
+?>
+    
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>

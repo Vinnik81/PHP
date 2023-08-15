@@ -8,15 +8,37 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body>
-    <h1>AUTORISATION</h1>
+  <div class="conteiner" style="background-image: url('/images/imageLogin.jpg'); background-size: cover; height: 900px;">
+  <nav class="navbar navbar-expand-lg bg-primary-subtle border border-primary-subtle">
+  <div class="container-fluid">
+    <a class="navbar-brand text-primary-emphasis" href="#">Панель навигации</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Переключатель навигации">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active text-primary-emphasis" aria-current="page" href="./login.php">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-primary-emphasis" href="../registration/registration.php">Регистрация</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-danger-emphasis" href="/logout.php">Выход</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <h1 class="text-warning-emphasis">AUTORISATION</h1>
     <form method="post" action="do_login.php">
         <div class="md-3">
-        <label for="username" class="form-label">username: </label>
+        <label for="username" class="form-label text-warning-emphasis">username: </label>
         <input type="text" class="form-control w-50" id="username" name="username" placeholder="Enter Username">
         </div>
         <br>
     <div class="md-3">
-    <label for="password" class="form-label">password: </label>
+    <label for="password" class="form-label text-warning-emphasis">password: </label>
     <input type="password" class="form-control w-50" id="password" name="password" placeholder="Enter Password">
     </div>
     <br>
@@ -35,6 +57,13 @@
 </a>
 
     </form>
+  </div>
+  <footer>
+<div class="d-flex justify-content-evenly bg-primary border border-primary-subtle">
+	<h6>ToDoSite 2023</h6>
+	<a class="text-primary-emphasis" href="https://omsk.top-academy.ru">Company: Academy TOP</a>
+</div>
+</footer> 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
