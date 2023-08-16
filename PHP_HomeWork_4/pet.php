@@ -7,10 +7,10 @@ class Pet  {
     private $Isnormal;
 
     public function __construct() {
-        $this->happiness = 50.0;
+        $this->happiness = 50;
         $this->hunger = 50;
         $this->sleep = 50;
-        $this->Isnormal;
+        $this->Isnormal == false;
     }
 
     public function decreaseAttributes() {

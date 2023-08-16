@@ -25,19 +25,20 @@
 
      if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $command = $_POST['command'];
-        if ($command == "играть") {
-            $pet->play();
-        } elseif ($command == "кормить") {
-            $pet->feed();
-        } elseif ($command == "спать") {
-            $pet->sleepy();
-        } elseif ($command == "бессмертие") {
-            $pet->setIsnormal(true);
+            if ($command == "играть") {
+                $pet->play();
+            } elseif ($command == "кормить") {
+                $pet->feed();
+            } elseif ($command == "спать") {
+                $pet->sleepy();
+            } elseif ($command == "бессмертие") {
+                $pet->setIsnormal(true);
+            }
+            else {
+                echo "Неверная команда!";
+            }
         }
-        else {
-            echo "Неверная команда!";
-        }
-    }
+        
 
     // if (!isset($_SESSION['last_update_time'])) {
     //     $_SESSION['last_update_time'] = $currentTime;
