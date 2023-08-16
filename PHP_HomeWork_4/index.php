@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
-<body style="background-color: blueviolet;">
-    <div class="container">
+<body style="background-color: skyblue;">
+    <div class="container" style="background-color: blueviolet; border-radius: 50px; border: 20px solid #545454">
         <h1>Питомец</h1>
         
         <div class="attributes">
@@ -58,7 +58,7 @@ echo date('Y-m-d H:i', $oneMinuteLater);
 $pet->showAttributes();
 
 ?>
-<img src="./images/1681578146_5.png" class="card-img-top w-75" alt="...">
+<img src="./images/1681578146_5.png" class="card-img-top w-75" alt="..." style="background-color: blueviolet; border-radius: 50px; border: 5px solid black">
         </div>
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
         
